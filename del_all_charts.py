@@ -3,7 +3,7 @@ import os, shutil
 def del_charts(confirmation):
     images = []
     src = os.getcwd() + '/Covid Pie Charts/'
-    if option.casefold() == 'y' or option.casefold() == 'yes':
+    if confirmation.casefold() == 'y' or confirmation.casefold() == 'yes':
         try:
             for root, dirs, files in os.walk(src):
                 for name in files:
