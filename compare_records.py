@@ -14,7 +14,7 @@ def find_files(file_one, file_two, search_path):
                     results.append(os.path.join(root, csv_two))
                     dir.append('None')
                 else:
-                    raise FileNotFoundError('Neither {' + csv_one + ' or ' + csv_two + '} exists in the directories.')
+                    raise FileNotFoundError('Neither {' + csv_one + ' or ' + csv_two + '} exists in Records Library.')
 
             for result in results:
                 df = pd.read_csv(result)
