@@ -1,7 +1,4 @@
-import requests
-import time
-import shutil
-import os
+import requests, time, shutil, os
 from bs4 import BeautifulSoup as soup
 from pathlib import Path
 from datetime import datetime
