@@ -6,7 +6,7 @@ def find_files(file_one, file_two, search_path):
     path = os.getcwd() + '/Records/'
     try:
         for root, dir, files in os.walk(path + search_path):
-            if file_one and file_two in files:
+            if file_one + '.csv' and file_two + '.csv' in files:
                 results.append(os.path.join(root, file_one))
                 results.append(os.path.join(root, file_two))
                 dir.append('None')
