@@ -9,8 +9,7 @@ def del_charts(confirmation):
                 for name in files:
                     if name.endswith(('.png')):
                         images.append(name)
-
-
+                        
             shutil.rmtree(src)
 
             if not os.path.isdir(src):
