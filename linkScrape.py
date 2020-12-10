@@ -17,7 +17,7 @@ def main():
 
 def writeLinks(filename, locator):
 	i = 0
-	with open(filename, 'w') as f:
+	with open('lib/' + filename, 'w') as f:
 		f.write('options_container = {\n')
 		f.write("\t\t'worldwide' : '',\n")
 		for row in locator.findAll('table', {'id':'main_table_countries_today'})[0:]:
