@@ -14,8 +14,8 @@ def del_charts(confirmation):
 
             shutil.rmtree(src)
             for path in filepath:
-                print(path + ' Will be deleted')
-                
+                print(path + ' {Will be deleted}')
+
             if not os.path.isdir(src):
                 for image in images[0:]:
                     print("{" + image + "} has been deleted successfully!")

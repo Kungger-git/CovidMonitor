@@ -2,15 +2,19 @@ import os, shutil
 
 def del_all_records(confirmation):
     filenames = []
+    filepath = []
     src = os.getcwd() + '/Records/'
-    if option.casefold() == 'y' or option.casefold() == 'yes':
+    if confirmation.casefold() == 'y' or confirmation.casefold() == 'yes':
         try:
             for root, dirs, files in os.walk(src):
                 for name in files:
+                    filepath.append(os.path.join(root, name))
                     if name.endswith(('.csv')):
                         filenames.append(name)
 
             shutil.rmtree(src)
+            for path in filepath:
+                print(path + ' {Will be deleted}')
 
             if not os.path.isdir(src):
                 for filename in filenames[0:]:
