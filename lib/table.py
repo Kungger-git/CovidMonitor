@@ -144,7 +144,6 @@ options_container = {
 		'iceland' : 'country/iceland/',
 		'mayotte' : 'country/mayotte/',
 		'mali' : 'country/mali/',
-		'suriname' : 'country/suriname/',
 		'equatorial guinea' : 'country/equatorial-guinea/',
 		'aruba' : 'country/aruba/',
 		'car' : 'country/central-african-republic/',
