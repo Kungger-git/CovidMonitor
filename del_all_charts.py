@@ -2,16 +2,20 @@ import os, shutil
 
 def del_charts(confirmation):
     images = []
+    filepath = []
     src = os.getcwd() + '/Covid Pie Charts/'
     if confirmation.casefold() == 'y' or confirmation.casefold() == 'yes':
         try:
             for root, dirs, files in os.walk(src):
                 for name in files:
+                    filepath.append(os.path.join(root, name))
                     if name.endswith(('.png')):
                         images.append(name)
-                        
-            shutil.rmtree(src)
 
+            shutil.rmtree(src)
+            for path in filepath:
+                print(path + ' Will be deleted')
+                
             if not os.path.isdir(src):
                 for image in images[0:]:
                     print("{" + image + "} has been deleted successfully!")

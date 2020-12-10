@@ -1,0 +1,56 @@
+December 09-2020 | 16:11:22 Searching For: Philippines HTTPSConnectionPool(host='www.worldometers.info', port=443): Read timed out.
+
+December 09-2020 | 16:11:34 Searching For: Romania HTTPSConnectionPool(host='www.worldometers.info', port=443): Read timed out. (read timeout=1)
+
+December 09-2020 | 16:11:34 Searching For: Romania HTTPSConnectionPool(host='www.worldometers.info', port=443): Max retries exceeded with url: /coronavirus/country/romania/ (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x0000021B510072B0>, 'Connection to www.worldometers.info timed out. (connect timeout=1)'))
+
+December 09-2020 | 16:11:34 Searching For: Romania HTTPSConnectionPool(host='www.worldometers.info', port=443): Max retries exceeded with url: /coronavirus/country/romania/ (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x0000021B5A403A60>, 'Connection to www.worldometers.info timed out. (connect timeout=1)'))
+
+December 09-2020 | 16:11:34 Searching For: Romania HTTPSConnectionPool(host='www.worldometers.info', port=443): Max retries exceeded with url: /coronavirus/country/romania/ (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x0000021B5A404340>, 'Connection to www.worldometers.info timed out. (connect timeout=1)'))
+
+December 09-2020 | 16:11:34 Searching For: Romania HTTPSConnectionPool(host='www.worldometers.info', port=443): Read timed out. (read timeout=1)
+
+December 09-2020 | 16:11:34 Searching For: Romania HTTPSConnectionPool(host='www.worldometers.info', port=443): Max retries exceeded with url: /coronavirus/country/romania/ (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x0000021B5A40E4F0>, 'Connection to www.worldometers.info timed out. (connect timeout=1)'))
+
+December 09-2020 | 16:11:34 Searching For: Romania HTTPSConnectionPool(host='www.worldometers.info', port=443): Max retries exceeded with url: /coronavirus/country/romania/ (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x0000021B5A40ED90>, 'Connection to www.worldometers.info timed out. (connect timeout=1)'))
+
+December 09-2020 | 16:11:34 Searching For: Romania HTTPSConnectionPool(host='www.worldometers.info', port=443): Max retries exceeded with url: /coronavirus/country/romania/ (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x0000021B5A417670>, 'Connection to www.worldometers.info timed out. (connect timeout=1)'))
+
+December 09-2020 | 16:19:14 Searching For: Finland HTTPSConnectionPool(host='www.worldometers.info', port=443): Read timed out. (read timeout=1)
+
+December 09-2020 | 16:21:04 Searching For: Cabo verde HTTPSConnectionPool(host='www.worldometers.info', port=443): Read timed out. (read timeout=1)
+
+December 09-2020 | 16:23:56 Searching For: Martinique HTTPSConnectionPool(host='www.worldometers.info', port=443): Read timed out. (read timeout=1)
+
+December 09-2020 | 16:25:43 Searching For: Liberia HTTPSConnectionPool(host='www.worldometers.info', port=443): Read timed out. (read timeout=1)
+
+December 09-2020 | 21:08:09 Searching For: Netherlands HTTPSConnectionPool(host='www.worldometers.info', port=443): Read timed out. (read timeout=1)
+
+December 09-2020 | 21:10:43 Searching For: Kyrgyzstan HTTPSConnectionPool(host='www.worldometers.info', port=443): Read timed out. (read timeout=1)
+
+December 09-2020 | 21:10:43 Searching For: Kyrgyzstan HTTPSConnectionPool(host='www.worldometers.info', port=443): Read timed out. (read timeout=1)
+
+December 09-2020 | 21:11:19 Searching For: Norway HTTPSConnectionPool(host='www.worldometers.info', port=443): Read timed out. (read timeout=1)
+
+December 09-2020 | 21:12:18 Searching For: Maldives HTTPSConnectionPool(host='www.worldometers.info', port=443): Read timed out. (read timeout=1)
+
+December 09-2020 | 21:12:36 Searching For: Jamaica HTTPSConnectionPool(host='www.worldometers.info', port=443): Read timed out. (read timeout=1)
+
+December 09-2020 | 21:12:41 Searching For: Cabo verde HTTPSConnectionPool(host='www.worldometers.info', port=443): Read timed out. (read timeout=1)
+
+December 09-2020 | 21:12:45 Searching For: Haiti HTTPSConnectionPool(host='www.worldometers.info', port=443): Read timed out. (read timeout=1)
+
+December 09-2020 | 21:12:59 Searching For: Estonia HTTPSConnectionPool(host='www.worldometers.info', port=443): Read timed out. (read timeout=1)
+
+December 09-2020 | 21:12:59 Searching For: Estonia HTTPSConnectionPool(host='www.worldometers.info', port=443): Read timed out. (read timeout=1)
+
+December 09-2020 | 21:12:59 Searching For: Estonia HTTPSConnectionPool(host='www.worldometers.info', port=443): Read timed out. (read timeout=1)
+
+December 09-2020 | 21:16:38 Searching For: Caribbean netherlands HTTPSConnectionPool(host='www.worldometers.info', port=443): Read timed out. (read timeout=1)
+
+December 10-2020 | 04:12:28 Searching For: Usa HTTPSConnectionPool(host='www.worldometers.info', port=443): Read timed out. (read timeout=1)
+
+December 10-2020 | 04:12:28 Searching For: Usa HTTPSConnectionPool(host='www.worldometers.info', port=443): Read timed out. (read timeout=1)
+
+December 10-2020 | 04:12:28 Searching For: Usa HTTPSConnectionPool(host='www.worldometers.info', port=443): Read timed out. (read timeout=1)
+
