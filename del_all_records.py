@@ -1,8 +1,7 @@
 import os, shutil
 
 def del_all_records(confirmation):
-    filenames = []
-    filepath = []
+    filenames, filepath = [], []
     src = os.getcwd() + '/Records/'
     if confirmation.casefold() == 'y' or confirmation.casefold() == 'yes':
         try:
