@@ -10,7 +10,7 @@ def delete_record(filename, search_path):
         else:
             print(filename + ' has not been deleted')
     else:
-        print(filename + ' does not exist')
+        raise FileNotFoundError(filename + ' does not exist.')
 
 rem_file = str(input('Input filename: '))
 file_path = str(input('Path:(year/month) '))

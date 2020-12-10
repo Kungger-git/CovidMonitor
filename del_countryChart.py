@@ -10,7 +10,7 @@ def delete_country(folder):
         else:
             print(folder + ' still exists')
     else:
-        print(folder + ' does not exist')
+        raise FileNotFoundError(folder + ' does not exist.')
 
 rem_folder = str(input('Input folder: '))
 delete_country(rem_folder)
