@@ -2,6 +2,7 @@ from datetime import datetime
 import pandas as pd
 import os
 
+
 def read():
     now = datetime.now()
     month, year = now.strftime('%B'), now.strftime('%Y')

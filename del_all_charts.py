@@ -1,4 +1,6 @@
-import os, shutil
+import os
+import shutil
+
 
 def del_charts(confirmation):
     images, filepath = [], []
@@ -30,5 +32,6 @@ def del_charts(confirmation):
         quit()
 
 
-option = str(input('Are you sure you want to delete all existing records?(y/n) '))
+option = str(
+    input('Are you sure you want to delete all existing records?(y/n) '))
 del_charts(option)

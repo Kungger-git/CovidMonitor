@@ -1,5 +1,6 @@
 import os
 
+
 def delete_record(filename, search_path):
     src = os.getcwd() + '/Records/' + search_path
 
@@ -11,6 +12,7 @@ def delete_record(filename, search_path):
             print(filename + ' has not been deleted')
     else:
         raise FileNotFoundError(filename + ' does not exist.')
+
 
 rem_file = str(input('Input filename: '))
 file_path = str(input('Path:(year/month) '))

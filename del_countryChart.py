@@ -1,5 +1,6 @@
 import os, shutil
 
+
 def delete_country(folder):
     src = os.getcwd() + '/Covid Pie Charts/'
 
@@ -11,6 +12,7 @@ def delete_country(folder):
             print(folder + ' still exists')
     else:
         raise FileNotFoundError(folder + ' does not exist.')
+
 
 rem_folder = str(input('Input folder: '))
 delete_country(rem_folder)
