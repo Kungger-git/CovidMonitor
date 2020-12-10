@@ -199,6 +199,6 @@ if __name__ == '__main__':
         dt_string, dt_string_time = now.strftime(
             "%B %d-%Y"), now.strftime("%B %d-%Y | %H:%M:%S")
         main(country)
-    read_all_records.read()
     end = time.time()
+    read_all_records.read()
     print('\n\nWhole Program ran for: ' + convert(end-start) + '\n\n')
