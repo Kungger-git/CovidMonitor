@@ -202,4 +202,3 @@ if __name__ == '__main__':
     end = time.time()
     read_all_records.read()
     print('\n\nWhole Program ran for: ' + convert(end-start) + '\n\n')
-    
