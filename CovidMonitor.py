@@ -32,7 +32,7 @@ def main(option):
             ref_req = 'https://www.worldometers.info/coronavirus/' + \
                 table.options_container.get(option.casefold())
             req = requests.get(
-                ref_req.replace("'", '').replace('None', ''), timeout=1
+                ref_req.replace("'", '').replace('None', ''), timeout=0.8
             )
             req.raise_for_status()
             page_soup = soup(req.text, "html.parser")
