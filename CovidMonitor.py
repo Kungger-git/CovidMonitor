@@ -94,7 +94,7 @@ def writeFile(src, filename, locator, country):
                 total_deaths = records[1].replace('N/A', '0')
                 total_recoveries = records[2].replace('N/A', '0')
                 active_cases = int(total_cases) - \
-                    int(total_deaths) - int(total_recoveries)
+                    int(total_recoveries) - int(total_deaths)
 
                 f.write(country.capitalize().replace('é', 'e').replace('ç', 'c') + ', ' + dt_string + ', ' +
                         total_cases + ', ' + total_deaths + ', ' + total_recoveries + ', ' + str(active_cases) + '\n')
@@ -115,6 +115,8 @@ def writeFile(src, filename, locator, country):
         for f in os.listdir(src)[0:]:
             if os.path.splitext(f)[1] == '.csv':
                 shutil.move(src + f, dst)
+    else:
+        raise FileNotFoundError('Directory/File has not been found! ')
 
 
 def createChart(locator, country):
@@ -159,7 +161,7 @@ def transferPhoto(src, country):
     destination = src + "Covid Pie Charts/" + country.capitalize() + "/" + year + \
         "/" + month + "/"
 
-# If directory/Month does not exist, create new directory
+    # If directory/Month does not exist, create new directory
     if not os.path.exists(destination):
         os.makedirs(destination)
     else:
@@ -173,8 +175,8 @@ def transferPhoto(src, country):
         if os.path.exists(destination + fileformat):
             print('\n\nImage saved and transferred successfully to: ' +
                   destination + '\n\nas: ' + fileformat + '\n')
-    except FileNotFoundError:
-        print(FileNotFoundError)
+    except FileNotFoundError as io:
+        print('Directory/File has not been found! ', io)
 
 
 def convert(seconds):
