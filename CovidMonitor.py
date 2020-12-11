@@ -167,7 +167,7 @@ def transferPhoto(src, country):
             shutil.move(src + f, destination)
 
     # check if file has been transferred successfully
-    fileformat = dt_string + ' | ' + country.capitalize() + '.png'
+    fileformat = dt_string + '__' + country.capitalize() + '.png'
     try:
         if os.path.exists(destination + fileformat):
             print('\n\nImage saved and transferred successfully to: ' +
