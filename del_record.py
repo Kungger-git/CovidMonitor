@@ -2,7 +2,7 @@ import os
 
 
 def delete_record(filename, search_path):
-    src = os.getcwd() + '/Records/' + search_path
+    src = os.getcwd() + '/Records/' + search_path + '/'
 
     if filename in os.listdir(src):
         os.remove(src + filename)
