@@ -3,7 +3,7 @@
 Setup:
 
 # Clone the repo
-$ git clone https://github.com/KungPaoChick/CovidMonitor
+$ git clone https://github.com/KungPaoChick/CovidMonitor.git
 
 # Change the working directory to CovidMonitor`
 $ cd CovidMonitor
