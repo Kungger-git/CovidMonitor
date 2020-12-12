@@ -1,4 +1,4 @@
-import requests, time, shutil, os
+import requests, time, shutil, os, errno
 from bs4 import BeautifulSoup as soup
 from pathlib import Path
 from datetime import datetime
@@ -115,8 +115,6 @@ def writeFile(src, filename, locator, country):
         for f in os.listdir(src)[0:]:
             if os.path.splitext(f)[1] == '.csv':
                 shutil.move(src + f, dst)
-    else:
-        raise FileNotFoundError('Directory/File has not been found! ')
 
 
 def createChart(locator, country):

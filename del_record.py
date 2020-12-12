@@ -1,4 +1,4 @@
-import os
+import os, errno
 
 
 def delete_record(filename, search_path):
@@ -11,7 +11,8 @@ def delete_record(filename, search_path):
         else:
             print(filename + ' has not been deleted')
     else:
-        raise FileNotFoundError(filename + ' does not exist.')
+        raise FileNotFoundError(
+                errno.ENOENT, os.strerror(errno.ENOENT), filename)
 
 
 rem_file = str(input('Input filename: '))

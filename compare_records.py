@@ -1,4 +1,4 @@
-import os
+import os, errno
 import pandas as pd
 
 
@@ -27,7 +27,9 @@ def find_files(file_one, file_two, search_path):
         except FileNotFoundError as io:
             print('Directory/File has not been found! ', io)
     else:
-        raise FileNotFoundError('{' + search_path + '} is not a directory.')
+        raise FileNotFoundError(
+                errno.ENOENT, os.strerror(errno.ENOENT),
+                 "{" + path + search_path + "} is not a Directory")
 
 
 first_file = str(input('First Country: '))

@@ -1,4 +1,4 @@
-import os, shutil
+import os, shutil, errno
 
 
 def delete_country(folder):
@@ -11,7 +11,8 @@ def delete_country(folder):
         else:
             print(folder + ' still exists')
     else:
-        raise FileNotFoundError(folder + ' does not exist.')
+        raise FileNotFoundError(
+                errno.ENOENT, os.strerror(errno.ENOENT), folder)
 
 
 rem_folder = str(input('Input folder: '))
