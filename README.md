@@ -3,13 +3,13 @@
 Setup:
 
 # Clone the repo
-$ git clone https://github.com/KungPaoChick/CovidMonitor.git
+```$ git clone https://github.com/KungPaoChick/CovidMonitor.git```
 
 # Change the working directory to CovidMonitor`
-$ cd CovidMonitor
+```$ cd CovidMonitor```
 
 # install the requirements
-$ python3 -m pip install -r requirements.txt
+```$ python3 -m pip install -r requirements.txt```
 
 
 Grabs every Case, Deaths, Recoveries Status from each country/continent.
