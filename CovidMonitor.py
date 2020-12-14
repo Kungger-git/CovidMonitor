@@ -1,4 +1,4 @@
-import requests, time, shutil, os, errno
+import requests, time, shutil, os
 from bs4 import BeautifulSoup as soup
 from pathlib import Path
 from datetime import datetime
@@ -162,19 +162,16 @@ def transferPhoto(src, country):
     # If directory/Month does not exist, create new directory
     if not os.path.exists(destination):
         os.makedirs(destination)
-    else:
-        for f in os.listdir(src)[0:]:
-            if os.path.splitext(f)[1] == '.png':
-                shutil.move(src + f, destination)
+    for f in os.listdir(src)[0:]:
+        if os.path.splitext(f)[1] == '.png':
+            shutil.move(src + f, destination)
 
-    # check if file has been transferred successfully
-    fileformat = dt_string + '__' + country.capitalize() + '.png'
-    try:
-        if os.path.exists(destination + fileformat):
-            print('\n\nImage saved and transferred successfully to: ' +
-                  destination + '\n\nas: ' + fileformat + '\n')
-    except FileNotFoundError as io:
-        print('Directory/File has not been found! ', io)
+            # check if file has been transferred successfully
+            try:
+                if os.path.exists(destination + f):
+                    print('\n\n' + f + ' has been successfully transferred!\n')
+            except FileNotFoundError as ioerr:
+                print(f, ioerr)
 
 
 def convert(seconds):
@@ -200,6 +197,7 @@ if __name__ == '__main__':
         dt_string, dt_string_time = now.strftime(
             "%B %d-%Y"), now.strftime("%B %d-%Y | %H:%M:%S")
         main(country)
-    end = time.time()
     read_all_records.read()
+    end = time.time()
     print('\n\nWhole Program ran for: ' + convert(end-start) + '\n\n')
+    
