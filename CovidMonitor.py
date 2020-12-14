@@ -162,6 +162,8 @@ def transferPhoto(src, country):
     # If directory/Month does not exist, create new directory
     if not os.path.exists(destination):
         os.makedirs(destination)
+        
+    # Transfer Image to Destination Directory
     for f in os.listdir(src)[0:]:
         if os.path.splitext(f)[1] == '.png':
             shutil.move(src + f, destination)
