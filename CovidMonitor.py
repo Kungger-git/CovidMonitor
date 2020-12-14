@@ -1,4 +1,7 @@
-import requests, time, shutil, os
+import requests
+import time
+import shutil
+import os
 from bs4 import BeautifulSoup as soup
 from pathlib import Path
 from datetime import datetime
@@ -162,7 +165,7 @@ def transferPhoto(src, country):
     # If directory/Month does not exist, create new directory
     if not os.path.exists(destination):
         os.makedirs(destination)
-        
+
     # Transfer Image to Destination Directory
     for f in os.listdir(src)[0:]:
         if os.path.splitext(f)[1] == '.png':
@@ -171,7 +174,8 @@ def transferPhoto(src, country):
             # check if file has been transferred successfully
             try:
                 if os.path.exists(destination + f):
-                    print('\n\n' + f + ' has been successfully transferred!\n')
+                    print(
+                        '\n\n' + f + ' has been successfully transferred to:\n' + destination)
             except FileNotFoundError as ioerr:
                 print(f, ioerr)
 
@@ -202,4 +206,3 @@ if __name__ == '__main__':
     read_all_records.read()
     end = time.time()
     print('\n\nWhole Program ran for: ' + convert(end-start) + '\n\n')
-    
