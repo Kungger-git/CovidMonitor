@@ -30,7 +30,6 @@ def writeLinks(filename, locator):
                 f.write("\t\t'" + country_names +
                         "' : '" + country_links + "',\n")
 
-        f.write("\t\t'' : 'None'\n\t}")
     print('\nTotal Links of Countries: ' + str(i))
 
 
