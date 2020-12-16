@@ -6,7 +6,8 @@ import os
 def read():
     now = datetime.now()
     month, year = now.strftime('%B'), now.strftime('%Y')
-    src = os.getcwd() + '/Records/' + year + '/' + month + '/'
+    get_pwd = os.path.abspath(os.path.join(os.getcwd(), os.pardir))
+    src = get_pwd + '/Records/' + year + '/' + month + '/'
     try:
         for f in os.listdir(src)[0:]:
             if os.path.splitext(f)[1] == '.csv':
