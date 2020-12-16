@@ -52,7 +52,7 @@ def main(option):
             createChart(page_soup, option)
         except requests.exceptions.RequestException as err:
             print('Something went wrong! ', err)
-            with open('Errors.txt', 'a') as f:
+            with open('Errors.txt', 'a', encoding='utf-8') as f:
                 f.write(dt_string_time + ' Searching For: ' +
                         option.capitalize() + ' ' + str(err) + '\n\n')
             if name_of_file in os.listdir(source):
@@ -74,7 +74,7 @@ def checkFile(src, filename, country):
             print("\n'" + filename + "' exists.. Proceeding to Data Collection!\n")
         else:
             print("\nFile Created named: '" + filename + "'\n")
-            with open(filename, 'w') as f:
+            with open(filename, 'w', encoding='utf-8') as f:
                 headers = "Country, Date, Cases, Deaths, Recoveries, Active Cases\n"
                 f.write(headers)
 
@@ -87,7 +87,7 @@ def writeFile(src, filename, locator, country):
         os.makedirs(dst)
 
     def scrape_write(pointer):
-        with open(pointer + filename, 'a') as f:
+        with open(pointer + filename, 'a', encoding='utf-8') as f:
             # Write all contents
             for container in locator.findAll('div', {'class': 'content-inner'})[0:]:
                 records = [records.text.strip().replace(',', '') for records in container.findAll(
@@ -99,11 +99,11 @@ def writeFile(src, filename, locator, country):
                 active_cases = int(total_cases) - \
                     int(total_recoveries) - int(total_deaths)
 
-                f.write(country.capitalize().replace('é', 'e').replace('ç', 'c') + ', ' + dt_string + ', ' +
+                f.write(country.capitalize() + ', ' + dt_string + ', ' +
                         total_cases + ', ' + total_deaths + ', ' + total_recoveries + ', ' + str(active_cases) + '\n')
             f.close()
             # Listing all Data from csv file in Console
-            update = pd.read_csv(pointer + filename)
+            update = pd.read_csv(pointer + filename, encoding='utf-8')
             pd.set_option('display.max_rows', None)
             print('\n\nUpdated Data Frame:\n')
             print(update)

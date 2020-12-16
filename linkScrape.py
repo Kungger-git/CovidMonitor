@@ -19,7 +19,7 @@ def main():
 
 def writeLinks(filename, locator):
     i = 0
-    with open('lib/' + filename, 'w') as f:
+    with open('lib/' + filename, 'w', encoding='utf-8') as f:
         f.write('options_container = {\n')
         f.write("\t\t'worldwide' : '',\n")
         for row in locator.findAll('table', {'id': 'main_table_countries_today'})[0:]:
@@ -30,7 +30,7 @@ def writeLinks(filename, locator):
                 f.write("\t\t'" + country_names +
                         "' : '" + country_links + "',\n")
 
-        f.write("\t\t'' : 'None'\n\t}")
+        f.write("\t}")
     print('\nTotal Links of Countries: ' + str(i))
 
 
