@@ -198,7 +198,7 @@ if __name__ == '__main__':
     #countries = ['Worldwide', 'Philippines', 'USA', 'India']
     start = time.time()
     i = 0
-    total_countries = 217
+    total_countries = 218
     for country in table.options_container:
         i += 1
         print("\n\033[1;32;40m" + str(i) + ' of ' + str(total_countries) + '\n\033[0;37;40m')
