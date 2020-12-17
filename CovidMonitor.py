@@ -2,6 +2,7 @@ import requests
 import time
 import shutil
 import os
+import colorama
 from bs4 import BeautifulSoup as soup
 from pathlib import Path
 from datetime import datetime
@@ -47,11 +48,13 @@ def main(option):
             writeFile(source, name_of_file, page_soup, option)
 
             end = time.time()
-            print('\nScraping took ' + convert(end - start) + '\n')
+            print(colorama.Fore.GREEN, '\nScraping took ' +
+                  convert(end - start) + '\n', colorama.Style.RESET_ALL)
 
             createChart(page_soup, option)
         except requests.exceptions.RequestException as err:
-            print('Something went wrong! ', err)
+            print(colorama.Fore.RED, 'Something went wrong! ',
+                  err, colorama.Style.RESET_ALL)
             with open('Errors.txt', 'a', encoding='utf-8') as f:
                 f.write(dt_string_time + ' Searching For: ' +
                         option.capitalize() + ' ' + str(err) + '\n\n')
@@ -65,15 +68,18 @@ def main(option):
 def checkFile(src, filename, country):
     record_path = src + 'Records/' + year + '/' + month + '/'
     if not country.casefold() in table.options_container:
-        print('\n\nInvalid input\n\nRestarting...')
+        print(colorama.Fore.RED, '\n\nInvalid input\n\nRestarting...',
+              colorama.Style.RESET_ALL)
         time.sleep(2)
         os.system('python CovidMonitor.py')
         quit()
     else:
         if Path(record_path + filename).exists():
-            print("\n'" + filename + "' exists.. Proceeding to Data Collection!\n")
+            print(colorama.Fore.LIGHTYELLOW_EX, "\n'" + filename +
+                  "' exists.. Proceeding to Data Collection!\n", colorama.Style.RESET_ALL)
         else:
-            print("\nFile Created named: '" + filename + "'\n")
+            print(colorama.Fore.LIGHTYELLOW_EX, "\nFile Created named: '" +
+                  filename + "'\n", colorama.Style.RESET_ALL)
             with open(filename, 'w', encoding='utf-8') as f:
                 headers = "Country, Date, Cases, Deaths, Recoveries, Active Cases\n"
                 f.write(headers)
@@ -174,10 +180,10 @@ def transferPhoto(src, country):
             # check if file has been transferred successfully
             try:
                 if os.path.exists(destination + f):
-                    print(
-                        '\n\n' + f + ' has been successfully transferred to:\n' + destination)
+                    print(colorama.Fore.GREEN,
+                          '\n\n' + f + ' has been successfully transferred to:\n' + destination, colorama.Style.RESET_ALL)
             except FileNotFoundError as ioerr:
-                print(f, ioerr)
+                print(colorama.Fore.RED, f, ioerr, colorama.Style.RESET_ALL)
 
 
 def convert(seconds):
@@ -198,10 +204,12 @@ if __name__ == '__main__':
     #countries = ['Worldwide', 'Philippines', 'USA', 'India']
     start = time.time()
     i = 0
+    colorama.init()
     total_countries = len(table.options_container)
     for country in table.options_container:
         i += 1
-        print("\n\033[1;32;40m" + str(i) + ' of ' + str(total_countries) + '\n\033[0;37;40m')
+        print(colorama.Fore.CYAN, '\n' + str(i) + ' of ' +
+              str(total_countries) + '\n', colorama.Style.RESET_ALL)
         now = datetime.now()
         year, month = now.strftime('%Y'), now.strftime('%B')
         dt_string, dt_string_time = now.strftime(
@@ -209,4 +217,5 @@ if __name__ == '__main__':
         main(country)
     read_all_records.read()
     end = time.time()
-    print('\n\nWhole Program ran for: ' + convert(end-start) + '\n\n')
+    print(colorama.Fore.GREEN, '\n\nWhole Program ran for: ' +
+          convert(end-start) + '\n\n', colorama.Style.RESET_ALL)
