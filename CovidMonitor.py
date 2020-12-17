@@ -196,8 +196,8 @@ def getInfo(locator):
     for container in locator.findAll('div', {'class': 'content-inner'})[0:]:
         records = [records.text for records in container.findAll(
             'div', {'class': 'maincounter-number'})[0:]]
-        print('{' + dt_string_time + '} | Cases: ' + records[0].strip().replace('N/A', '0') + ' | Deaths: ' + records[1].strip(
-        ).replace('N/A', '0') + ' | Recoveries: ' + records[2].strip().replace('N/A', '0'))
+        print(colorama.Fore.LIGHTMAGENTA_EX, '{' + dt_string_time + '} | Cases: ' + records[0].strip().replace('N/A', '0') + ' | Deaths: ' + records[1].strip(
+        ).replace('N/A', '0') + ' | Recoveries: ' + records[2].strip().replace('N/A', '0'), colorama.Style.RESET_ALL)
 
 
 if __name__ == '__main__':
