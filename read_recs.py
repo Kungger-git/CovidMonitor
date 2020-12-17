@@ -12,5 +12,5 @@ try:
             pd.set_option('display.max_rows', None)
             print(df)
             print('\n\n')
-except FileNotFoundError as io:
-    print('Directory/File Not Found! ', io)
+except:
+    print("You currently have no records. Execute 'CovidMonitor.py' to create records.")
