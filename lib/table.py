@@ -216,5 +216,5 @@ options_container = {
 		'wallis and futuna' : 'country/wallis-and-futuna-islands/',
 		'samoa' : 'country/samoa/',
 		'vanuatu' : 'country/vanuatu/',
-		'china' : 'country/china/',
+		'china' : 'country/china/'
 	}
