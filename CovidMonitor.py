@@ -197,7 +197,11 @@ def getInfo(locator):
 if __name__ == '__main__':
     #countries = ['Worldwide', 'Philippines', 'USA', 'India']
     start = time.time()
+    i = 0
+    total_countries = 217
     for country in table.options_container:
+        i += 1
+        print("\n\033[1;32;40m" + str(i) + ' of ' + str(total_countries) + ' done\n\033[0;37;40m')
         now = datetime.now()
         year, month = now.strftime('%Y'), now.strftime('%B')
         dt_string, dt_string_time = now.strftime(
