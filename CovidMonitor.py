@@ -6,6 +6,7 @@ import colorama
 from bs4 import BeautifulSoup as soup
 from pathlib import Path
 from datetime import datetime
+from collections import OrderedDict
 import matplotlib.pyplot as plt
 import pandas as pd
 from lib import table
@@ -205,8 +206,9 @@ if __name__ == '__main__':
     start = time.time()
     i = 0
     colorama.init()
-    total_countries = len(table.options_container)
-    for country in table.options_container:
+    sorted_dict = OrderedDict(sorted(table.options_container.items()))
+    total_countries = len(sorted_dict)
+    for country in sorted_dict:
         i += 1
         print(colorama.Fore.CYAN, '\n' + str(i) + ' of ' +
               str(total_countries) + '\n', colorama.Style.RESET_ALL)
