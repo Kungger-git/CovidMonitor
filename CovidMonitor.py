@@ -51,8 +51,6 @@ def main(option):
             end = time.time()
             print(colorama.Fore.GREEN, '\nScraping took ' +
                   convert(end - start) + '\n', colorama.Style.RESET_ALL)
-
-            createChart(page_soup, option)
         except requests.exceptions.RequestException as err:
             print(colorama.Fore.RED, 'Something went wrong! ',
                   err, colorama.Style.RESET_ALL)
@@ -62,8 +60,6 @@ def main(option):
             if name_of_file in os.listdir(source):
                 os.remove(name_of_file)
             main(option)
-
-    transferPhoto(source, option)
 
 
 def checkFile(src, filename, country):
@@ -126,8 +122,10 @@ def writeFile(src, filename, locator, country):
             if os.path.splitext(f)[1] == '.csv':
                 shutil.move(src + f, dst)
 
+    createChart(src, locator, country)
 
-def createChart(locator, country):
+
+def createChart(src, locator, country):
     colors = ['#66b3ff', '#ff9999', '#99ff99', '#f98aff']
     for container in locator.findAll('div', {'class': 'content-inner'})[0:]:
         records = [records.text.strip() for records in container.findAll(
@@ -163,6 +161,8 @@ def createChart(locator, country):
         # plt.show(block=False)
         # plt.pause(1)
         plt.close()
+
+    transferPhoto(src, country)
 
 
 def transferPhoto(src, country):
