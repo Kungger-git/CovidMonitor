@@ -8,6 +8,10 @@ Setup:
 # Change the working directory to CovidMonitor
 ```$ cd CovidMonitor```
 
+
+# Run the Script
+```$ python CovidMonitor.py```
+
 # install the requirements
 ```$ python3 -m pip install -r requirements.txt```
 
