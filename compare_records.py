@@ -19,7 +19,7 @@ def find_files(file_one, file_two, search_path):
                         'Neither {' + csv_one + ' or ' + csv_two + '} exists in Records Library.')
 
             for result in results:
-                df = pd.read_csv(result)
+                df = pd.read_csv(result, encoding='utf-8')
                 pd.set_option('display.max_rows', None)
                 print(df)
                 print('\n\n')
