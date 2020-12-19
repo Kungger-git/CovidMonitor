@@ -4,7 +4,6 @@ import shutil
 import os
 import colorama
 from bs4 import BeautifulSoup as soup
-from pathlib import Path
 from datetime import datetime
 from collections import OrderedDict
 import matplotlib.pyplot as plt
@@ -71,7 +70,7 @@ def checkFile(src, filename, country):
         os.system('python CovidMonitor.py')
         quit()
     else:
-        if Path(record_path + filename).exists():
+        if os.path.exists(record_path + filename):
             print(colorama.Fore.LIGHTYELLOW_EX, "\n'" + filename +
                   "' exists.. Proceeding to Data Collection!\n", colorama.Style.RESET_ALL)
         else:
