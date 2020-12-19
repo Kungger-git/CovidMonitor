@@ -41,9 +41,6 @@ def main(option):
             req.raise_for_status()
             page_soup = soup(req.text, "html.parser")
 
-            print('\nCollecting Data...\n')
-            time.sleep(1)
-
             getInfo(page_soup)
             writeFile(source, name_of_file, page_soup, option)
 
