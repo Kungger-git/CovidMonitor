@@ -10,7 +10,7 @@ def read():
     try:
         for f in os.listdir(src)[0:]:
             if os.path.splitext(f)[1] == '.csv':
-                df = pd.read_csv(src + f)
+                df = pd.read_csv(src + f, encoding='utf-8')
                 pd.set_option('display.max_rows', None)
                 print(df)
                 print('\n\n')
