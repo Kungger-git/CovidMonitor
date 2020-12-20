@@ -20,11 +20,6 @@ def main(option):
         if os.path.splitext(f)[1] == '.csv':
             os.remove(f)
 
-    # for key in table.options_container:
-    #	print(key.capitalize() + '\n')
-
-    #option = input('Select View Options: ')
-
     name_of_file = option.capitalize() + '.csv'
     checkFile(source, name_of_file, option)
 
@@ -199,6 +194,10 @@ def getInfo(locator):
 
 if __name__ == '__main__':
     #countries = ['Worldwide', 'Philippines', 'USA', 'India']
+    #for key in table.options_container:
+    #   print(key.capitalize() + '\n')
+
+    #option = input('Select View Options: ')
     start = time.time()
     i = 0
     colorama.init()
