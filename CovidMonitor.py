@@ -51,6 +51,8 @@ def main(option):
             if name_of_file in os.listdir(source):
                 os.remove(name_of_file)
             main(option)
+    else:
+        raise KeyError(option + ' does not exists in the Dictionary')
 
 
 def checkFile(src, filename, country):
