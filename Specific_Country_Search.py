@@ -37,6 +37,8 @@ def main(option):
             main(option)
     elif option.casefold() == 'cancel':
         quit()
+    else:
+        raise KeyError(option + ' does not exist in the Dictionary')
 
 
 def createChart(locator, country):
