@@ -95,9 +95,11 @@ if __name__ == '__main__':
     dt_string, dt_string_time = now.strftime(
         "%B %d-%Y"), now.strftime("%B %d-%Y | %H:%M:%S")
 
+    i = 0
     sorted_dict = OrderedDict(sorted(table.options_container.items()))
     for key in sorted_dict:
-        print(key.capitalize() + '\n')
+        i += 1
+        print(str(i) + '. ' + key.capitalize() + '\n')
 
     country = input('Select View Options: ')
     main(country)
