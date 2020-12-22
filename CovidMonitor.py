@@ -132,8 +132,8 @@ def createChart(src, locator, country):
         active_cases = int(total_cases) - \
             int(total_deaths) - int(total_recoveries)
 
-        labels = ["Cases: " + records[0].replace('N/A', '0'), "Deaths: " + records[1].replace(
-            'N/A', '0'), "Recoveries: " + records[2].replace('N/A', '0'), "Active Cases: " + str(":,".format(active_cases))]
+        labels = ["Cases: " + "{:,}".format(int(total_cases)), "Deaths: " + "{:,}".format(int(total_deaths)),
+                  "Recoveries: " + "{:,}".format(int(total_recoveries)), "Active Cases: " + "{:,}".format(active_cases)]
         values = [total_cases, total_deaths, total_recoveries, active_cases]
         explode = (0.05, 0.05, 0.05, 0.05)
 
