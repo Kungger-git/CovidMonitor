@@ -1,0 +1,7 @@
+# Mac Files
+.DS_Store
+
+# vs code
+.vscode
+*.code-workspace
+__pycache__
