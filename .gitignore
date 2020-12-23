@@ -5,3 +5,7 @@
 .vscode
 *.code-workspace
 __pycache__
+
+# Records and Charts Directories
+Records
+Covid Pie Charts
