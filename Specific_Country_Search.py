@@ -20,13 +20,12 @@ def main(option):
                 ref_req.replace("'", '').replace('None', ''), timeout=1
             )
             req.raise_for_status()
-            page_soup = soup(req.text, "html.parser")
-
-            getInfo(option, page_soup)
-
+            page_soup = soup(req.text, "html.parser")    
             end = time.time()
+        
             print(colorama.Fore.GREEN, '\nScraping took ' +
                   convert(end - start) + '\n', colorama.Style.RESET_ALL)
+            getInfo(option, page_soup)
         except requests.exceptions.RequestException as err:
             print(colorama.Fore.RED, 'Something went wrong! ',
                   err, colorama.Style.RESET_ALL)
