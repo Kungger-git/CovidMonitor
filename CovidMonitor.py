@@ -77,6 +77,7 @@ def checkFile(src, filename, country):
 
 def writeFile(src, filename, locator, country):
     dst = src + 'Records/' + year + '/' + month + '/'
+    data_container = []
 
     # if destination folder does not exist, Create directory
     if not os.path.exists(dst):
@@ -94,6 +95,8 @@ def writeFile(src, filename, locator, country):
                 total_recoveries = records[2].replace('N/A', '0')
                 active_cases = int(total_cases) - \
                     int(total_recoveries) - int(total_deaths)
+                
+                data_container.extend((total_cases, total_deaths, total_recoveries, active_cases))
 
                 f.write(country.capitalize() + ', ' + dt_string + ', ' +
                         total_cases + ', ' + total_deaths + ', ' + total_recoveries + ', ' + str(active_cases) + '\n')
@@ -115,45 +118,36 @@ def writeFile(src, filename, locator, country):
             if os.path.splitext(f)[1] == '.csv':
                 shutil.move(src + f, dst)
 
-    createChart(src, locator, country)
+    createChart(src, data_container, country)
 
 
-def createChart(src, locator, country):
+def createChart(src, data, country):
     colors = ['#66b3ff', '#ff9999', '#99ff99', '#f98aff']
-    for container in locator.findAll('div', {'class': 'content-inner'})[0:]:
-        records = [records.text.strip() for records in container.findAll(
-            'div', {'class': 'maincounter-number'})[0:]]
-        plt.figure(figsize=(6, 3))
-        plt.gcf().canvas.set_window_title('Coronavirus ' + country.capitalize() + ' View')
+    plt.figure(figsize=(6, 3))
+    plt.gcf().canvas.set_window_title('Coronavirus ' + country.capitalize() + ' View')
 
-        total_cases = records[0].replace(',', '').replace('N/A', '0')
-        total_deaths = records[1].replace(',', '').replace('N/A', '0')
-        total_recoveries = records[2].replace(',', '').replace('N/A', '0')
-        active_cases = int(total_cases) - \
-            int(total_deaths) - int(total_recoveries)
+    labels = ["Cases: " + "{:,}".format(int(data[0])), "Deaths: " + "{:,}".format(int(data[1])),
+              "Recoveries: " + "{:,}".format(int(data[2])), "Active Cases: " + "{:,}".format(data[3])]
+    values = [data[0], data[1], data[2], data[3]]
+    explode = (0.05, 0.05, 0.05, 0.05)
 
-        labels = ["Cases: " + "{:,}".format(int(total_cases)), "Deaths: " + "{:,}".format(int(total_deaths)),
-                  "Recoveries: " + "{:,}".format(int(total_recoveries)), "Active Cases: " + "{:,}".format(active_cases)]
-        values = [total_cases, total_deaths, total_recoveries, active_cases]
-        explode = (0.05, 0.05, 0.05, 0.05)
+    plt.pie(values, colors=colors, startangle=90, shadow=True,
+            explode=explode, pctdistance=0.85, autopct='%1.1f%%')
+    plt.legend(labels=labels)
+    plt.xlabel('Date: ' + dt_string)
 
-        plt.pie(values, colors=colors, startangle=90, shadow=True,
-                explode=explode, pctdistance=0.85, autopct='%1.1f%%')
-        plt.legend(labels=labels)
-        plt.xlabel('Date: ' + dt_string)
+    center_circle = plt.Circle((0, 0), 0.70, fc='white')
+    fig = plt.gcf()
+    fig.gca().add_artist(center_circle)
 
-        center_circle = plt.Circle((0, 0), 0.70, fc='white')
-        fig = plt.gcf()
-        fig.gca().add_artist(center_circle)
+    plt.axis('equal')
+    plt.title(country.capitalize() + ' Coronavirus Chart')
+    plt.savefig(dt_string + '__' + country.capitalize() +
+                '.png', bbox_inches='tight')
 
-        plt.axis('equal')
-        plt.title(country.capitalize() + ' Coronavirus Chart')
-        plt.savefig(dt_string + '__' + country.capitalize() +
-                    '.png', bbox_inches='tight')
-
-        # plt.show(block=False)
-        # plt.pause(1)
-        plt.close()
+    # plt.show(block=False)
+    # plt.pause(1)
+    plt.close()
 
     transferPhoto(src, country)
 
