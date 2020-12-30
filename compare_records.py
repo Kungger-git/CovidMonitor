@@ -9,11 +9,11 @@ def find_files(file_one, file_two, search_path):
     csv_two = file_two + '.csv'
     if os.path.isdir(path + search_path):
         try:
-            for root, dir, files in os.walk(path + search_path):
+            for root, dirs, files in os.walk(path + search_path):
                 if csv_one and csv_two in files:
                     results.append(os.path.join(root, csv_one))
                     results.append(os.path.join(root, csv_two))
-                    dir.append('None')
+                    dirs.append('None')
                 else:
                     raise FileNotFoundError(
                         'Neither {' + csv_one + ' or ' + csv_two + '} exists in Records Library.')
