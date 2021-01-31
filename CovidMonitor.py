@@ -76,7 +76,7 @@ def checkFile(src, filename, country):
 
 
 def writeFile(src, filename, locator, country):
-    dst = src + 'Records/' + year + '/' + month + '/'
+    dst = src + f'Records/{year}/{month}/'
     data_container = []
 
     # if destination folder does not exist, Create directory
@@ -95,7 +95,7 @@ def writeFile(src, filename, locator, country):
                 total_recoveries = records[2].replace('N/A', '0')
                 active_cases = int(total_cases) - \
                     int(total_recoveries) - int(total_deaths)
-                
+
                 data_container.extend((total_cases, total_deaths, total_recoveries, active_cases))
 
                 f.write(country.capitalize() + ', ' + dt_string + ', ' +
@@ -134,16 +134,15 @@ def createChart(src, data, country):
     plt.pie(values, colors=colors, startangle=90, shadow=True,
             explode=explode, pctdistance=0.85, autopct='%1.1f%%')
     plt.legend(labels=labels)
-    plt.xlabel('Date: ' + dt_string)
+    plt.xlabel('Date: {dt_string}')
 
     center_circle = plt.Circle((0, 0), 0.70, fc='white')
     fig = plt.gcf()
     fig.gca().add_artist(center_circle)
 
     plt.axis('equal')
-    plt.title(country.capitalize() + ' Coronavirus Chart')
-    plt.savefig(dt_string + '__' + country.capitalize() +
-                '.png', bbox_inches='tight')
+    plt.title(f'{country.capitalize()} Coronavirus Chart')
+    plt.savefig(f'{dt_string}__{country.capitalize()}.png', bbox_inches='tight')
 
     # plt.show(block=False)
     # plt.pause(1)
@@ -153,8 +152,7 @@ def createChart(src, data, country):
 
 
 def transferPhoto(src, country):
-    destination = src + "Covid Pie Charts/" + country.capitalize() + "/" + year + \
-        "/" + month + "/"
+    destination = f'{src}/Covid Pie Charts/{country.capitalize()}/{year}/{month}/'
 
     # If directory/Month does not exist, create new directory
     if not os.path.exists(destination):
@@ -169,7 +167,7 @@ def transferPhoto(src, country):
             try:
                 if os.path.exists(destination + f):
                     print(colorama.Fore.GREEN,
-                          '\n\n' + f + ' has been successfully transferred to:\n' + destination, colorama.Style.RESET_ALL)
+                          f'\n\n{f} has been successfully transferred to:\n{destination}', colorama.Style.RESET_ALL)
             except FileNotFoundError as ioerr:
                 print(colorama.Fore.RED, f, ioerr, colorama.Style.RESET_ALL)
 
@@ -194,15 +192,16 @@ if __name__ == '__main__':
     #   print(key.capitalize() + '\n')
 
     #option = input('Select View Options: ')
-    start = time.time()
-    i = 0
+    start, i = time.time(), 0
     colorama.init()
-    sorted_dict = OrderedDict(sorted(table.options_container.items()))
+    sorted_dict = OrderedDict(
+        sorted(table.options_container.items())
+    )
     total_countries = len(sorted_dict)
     for country in sorted_dict:
         i += 1
-        print(colorama.Fore.CYAN, '\n' + str(i) + ' of ' +
-              str(total_countries) + '\n', colorama.Style.RESET_ALL)
+        print(colorama.Fore.CYAN,
+              f'\n{str(i)} of {str(total_countries)}\n', colorama.Style.RESET_ALL)
         now = datetime.now()
         year, month = now.strftime('%Y'), now.strftime('%B')
         dt_string, dt_string_time = now.strftime(
@@ -210,5 +209,5 @@ if __name__ == '__main__':
         main(country)
     end = time.time()
     read_all_records.read()
-    print(colorama.Fore.GREEN, '\n\nWhole Program ran for: ' +
-          convert(end-start) + '\n\n', colorama.Style.RESET_ALL)
+    print(colorama.Fore.GREEN,
+          f'\n\nWhole Program ran for: {convert(end-start)}\n\n', colorama.Style.RESET_ALL)

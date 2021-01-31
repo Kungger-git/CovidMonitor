@@ -10,3 +10,6 @@ __pycache__
 Records
 Covid Pie Charts
 Errors.txt
+*.csv
+*.png
+*.jpg

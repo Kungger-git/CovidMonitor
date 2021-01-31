@@ -16,6 +16,12 @@ try:
             pd.set_option('display.max_rows', None)
             print(f'{df}\n\n')
     print(colorama.Fore.GREEN,
-          f'Total of files: {str(i)}', colorama.Style.RESET_ALL)
+          f'Total of files: {str(i)}\n', colorama.Style.RESET_ALL)
+    if i == 218 or i == 219:
+        print(colorama.Fore.GREEN,
+              '[*] Everything is complete!', colorama.Style.RESET_ALL)
+    else:
+        print(colorama.Fore.RED,
+              '[!] Countries are not complete', colorama.Style.RESET_ALL)
 except:
     print("You currently have no records. Execute 'CovidMonitor.py' to create records.")
