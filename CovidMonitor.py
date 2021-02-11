@@ -152,7 +152,7 @@ def createChart(src, data, country):
 
 
 def transferPhoto(src, country):
-    destination = f'{src}/Covid Pie Charts/{country.capitalize()}/{year}/{month}/'
+    destination = f'{src}Covid Pie Charts/{country.capitalize()}/{year}/{month}/'
 
     # If directory/Month does not exist, create new directory
     if not os.path.exists(destination):
