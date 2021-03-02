@@ -134,7 +134,7 @@ def createChart(src, data, country):
     plt.pie(values, colors=colors, startangle=90, shadow=True,
             explode=explode, pctdistance=0.85, autopct='%1.1f%%')
     plt.legend(labels=labels)
-    plt.xlabel('Date: {dt_string}')
+    plt.xlabel(f'Date: {dt_string}')
 
     center_circle = plt.Circle((0, 0), 0.70, fc='white')
     fig = plt.gcf()
