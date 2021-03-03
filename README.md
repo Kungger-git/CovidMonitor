@@ -1,4 +1,10 @@
-# CovidMonitor
+<h2 align="center"><i>CovidMonitor</i></h2>
+
+<h3 align="center">
+<a href="https://asciinema.org/a/395940">
+Click Me to see Demo
+</a>
+</h3>
 
 Setup:
 
