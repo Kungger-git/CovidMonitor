@@ -20,7 +20,7 @@ def main(option):
         if os.path.splitext(f)[1] == '.csv':
             os.remove(f)
 
-    name_of_file = option.capitalize() + '.csv'
+    name_of_file = f'{option.capitalize()}.csv'
     checkFile(source, name_of_file, option)
 
     if option.casefold() in table.options_container:
@@ -40,23 +40,22 @@ def main(option):
             writeFile(source, name_of_file, page_soup, option)
 
             end = time.time()
-            print(colorama.Fore.GREEN, '\nScraping took ' +
-                  convert(end - start) + '\n', colorama.Style.RESET_ALL)
+            print(colorama.Fore.GREEN, 
+                f'\nScraping took {convert(end - start)}\n', colorama.Style.RESET_ALL)
         except requests.exceptions.RequestException as err:
             print(colorama.Fore.RED, 'Something went wrong! ',
                   err, colorama.Style.RESET_ALL)
             with open('Errors.txt', 'a', encoding='utf-8') as f:
-                f.write(dt_string_time + ' Searching For: ' +
-                        option.capitalize() + ' ' + str(err) + '\n\n')
+                f.write(f'{dt_string_time} Searching For: {option.capitalize()} {str(err)} \n\n')
             if name_of_file in os.listdir(source):
                 os.remove(name_of_file)
             main(option)
     else:
-        raise KeyError(option + ' does not exists in the Dictionary')
+        raise KeyError(f'{option} does not exists in the Dictionary')
 
 
 def checkFile(src, filename, country):
-    record_path = src + 'Records/' + year + '/' + month + '/'
+    record_path = f'{src}Records/{year}/{month}/'
     if not country.casefold() in table.options_container:
         print(colorama.Fore.RED, '\n\nInvalid input\n\nRestarting...',
               colorama.Style.RESET_ALL)
@@ -65,8 +64,8 @@ def checkFile(src, filename, country):
         quit()
     else:
         if os.path.exists(record_path + filename):
-            print(colorama.Fore.LIGHTYELLOW_EX, "\n'" + filename +
-                  "' exists.. Proceeding to Data Collection!\n", colorama.Style.RESET_ALL)
+            print(colorama.Fore.LIGHTYELLOW_EX, 
+                f"\n'{filename}' exists.. Proceeding to Data Collection!\n", colorama.Style.RESET_ALL)
         else:
             print(colorama.Fore.LIGHTYELLOW_EX, "\nFile Created named: '" +
                   filename + "'\n", colorama.Style.RESET_ALL)
@@ -98,8 +97,7 @@ def writeFile(src, filename, locator, country):
 
                 data_container.extend((total_cases, total_deaths, total_recoveries, active_cases))
 
-                f.write(country.capitalize() + ', ' + dt_string + ', ' +
-                        total_cases + ', ' + total_deaths + ', ' + total_recoveries + ', ' + str(active_cases) + '\n')
+                f.write(f'{country.capitalize()}, {dt_string}, {total_cases}, {total_deaths}, {total_recoveries}, {str(active_cases)}\n')
             f.close()
             # Listing all Data from csv file in Console
             update = pd.read_csv(pointer + filename, encoding='utf-8')
@@ -142,7 +140,7 @@ def createChart(src, data, country):
 
     plt.axis('equal')
     plt.title(f'{country.capitalize()} Coronavirus Chart')
-    plt.savefig(f'{dt_string}__{country.capitalize()}.png', bbox_inches='tight')
+    plt.savefig(f'{dt_string}_{country.capitalize()}.png', bbox_inches='tight')
 
     # plt.show(block=False)
     # plt.pause(1)
